@@ -256,7 +256,7 @@
             e.preventDefault()
             $.ajax({
                 url:"https://script.google.com/macros/s/AKfycbzVp1PKPdCOim1qE1U7tz8AkQlpMer6pjizcfUVZdHBaOn2ScmW_qhBRS-eBfoJqIY/exec",
-                data:$("#submit-form").serialize(),
+                data:$("#frm").serialize(),
                 method:"post",
                 success:function (response){
                     alert("Form submitted successfully")
