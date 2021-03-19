@@ -244,24 +244,24 @@
 
   
   <script>
-        $("#gform").submit((e)=>{
-            e.preventDefault()
-            $.ajax({
-                url:"https://script.google.com/macros/s/AKfycbzVp1PKPdCOim1qE1U7tz8AkQlpMer6pjizcfUVZdHBaOn2ScmW_qhBRS-eBfoJqIY/exec",
-                data:$("#gform").serialize(),
-                method:"post",
-                success:function (response){
-                    alert("Form submitted successfully")
-                    window.location.reload()
-                    //window.location.href="https://google.com"
-                },
-                error:function (err){
-                    alert("Something Error")
-    
-                }
-            })
+    $("#gform").submit((e)=>{
+        e.preventDefault()
+        $.ajax({
+            url:"https://script.google.com/macros/s/AKfycbwEUEaDzfgDY-0EZNN8kWvsUMy5WxGHY5QvUGFcyIB5M3lZ90o3-pSrCfKg3VziWqbP/exec",
+            data:$("#gform").serialize(),
+            method:"post",
+            success:function (response){
+                alert("Form submitted successfully")
+                window.location.reload()
+                //window.location.href="https://google.com"
+            },
+            error:function (err){
+                alert("Something Error")
+
+            }
         })
-    </script>
+    })
+</script>
 </body>
 
 </html>
