@@ -194,11 +194,11 @@
           <div class="contact-box">
 
 
-            <form>
+            <form id="frm" method="POST" action="https://script.google.com/macros/s/AKfycbzLN7FrtcFi_skR9RL9xYMaerusiK2cUTmxGh0KZK4F2za9v30pz4OLsmD9S2JqTGP-FQ/exec">
               <div class="form-group">
                 <label for="exampleInputName">Name</label>
                 <input type="name" class="form-control" id="exampleInputName" aria-describedby="emailHelp"
-                  placeholder="Enter Your Name">
+                  placeholder="Enter Your Name"pattern="[a-zA-Z\s]*"   required title ="Enter valid name">
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">Email Address</label>
@@ -206,7 +206,7 @@
               </div>
               <div class="form-group">
                 <label for="exampleInputNumber">Phone Number</label>
-                <input type="number" class="form-control" id="exampleInputnumber" placeholder="Enter Your Number Here">
+                <input type="number" class="form-control" id="exampleInputnumber" placeholder="Enter Your Number Here" pattern="[0-9]*"   required title="Enter valid Number">
               </div>
               <div class="form-group">
                 <label for="exampleInputmessage">Message</label>
