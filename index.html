@@ -195,7 +195,7 @@
           <div class="contact-box">
 
 
-            <form id="frm" method="POST" action="https://script.google.com/macros/s/AKfycbzLN7FrtcFi_skR9RL9xYMaerusiK2cUTmxGh0KZK4F2za9v30pz4OLsmD9S2JqTGP-FQ/exec">
+            <form id="frm" method="POST" action="">
               <div class="form-group">
                 <label for="exampleInputName">Name</label>
                 <input type="name" class="form-control" id="exampleInputName" aria-describedby="emailHelp"
@@ -252,10 +252,10 @@
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
   <script>
-        $("#submit-form").submit((e)=>{
+        $("#frm").submit((e)=>{
             e.preventDefault()
             $.ajax({
-                url:"",
+                url:"https://script.google.com/macros/s/AKfycbzVp1PKPdCOim1qE1U7tz8AkQlpMer6pjizcfUVZdHBaOn2ScmW_qhBRS-eBfoJqIY/exec",
                 data:$("#submit-form").serialize(),
                 method:"post",
                 success:function (response){
