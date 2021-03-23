@@ -13,14 +13,15 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600&display=swap"
     rel="stylesheet" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
 </head>
 
 <body>
-  <section class="header-section">
+  <section class="header-section fixed-top ">
     <div class="row navy">
-      <div class="col-xl-12 my-auto">
-        <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="col-xl-12 my-auto ">
+        <nav class="navbar navbar-expand-lg navbar-light navbar-fixed-top">
           <a class="navbar-brand" href="#"><img src="Assets/Images/text-1615876225744.png" width="150" />
           </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
@@ -72,7 +73,7 @@
         </div>
         <div class="col-lg-9 col-md-12 col-12">
           <p class="pt-5 text-justify" >
-            Iam a fullstack Web developer mostly specialised in MERN.Iam passionate about Web designing and development.I have the experience of working as a digital marketer and Wordpress developer.My works are professional and effective,that would give you a platform to share your vision to enhance and expand you business.Iam passionate about creating clean,unique,elegant designs and I really love what I do.
+            Iam a fullstack Web developer mostly specialised in MERN. Iam passionate about web designing and development. I have the experience of working as a digital marketer and Wordpress developer. My works are professional and effective, that would give you a platform to share your vision to enhance and expand you business. Iam passionate about creating clean, unique, elegant designs and I really love what I do.
           </p>
         </div>
       </div>
@@ -195,30 +196,138 @@
           <div class="contact-box">
 
 
-            <form id="gform" method="POST" action="">
-              <div class="form-group">
-                <label for="exampleInputName">Name</label>
-                <input type="name" class="form-control" id="exampleInputName" aria-describedby="emailHelp"
-                  placeholder="Enter Your Name"pattern="[a-zA-Z\s]*"   required title ="Enter valid name"name="name">
-              </div>
-              <div class="form-group">
-                <label for="exampleInputEmail1">Email Address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter Your Email Here"name="email">
-              </div>
-              <div class="form-group">
-                <label for="exampleInputNumber">Phone Number</label>
-                <input type="text" class="form-control" id="exampleInputnumber" placeholder="Enter Your Number Here" pattern="[0-9]*"   required title="Enter valid Number"name="number">
-              </div>
-              <div class="form-group">
-                <label for="exampleInputmessage">Message</label>
-                <input type="Message" class="form-control" id="exampleInputmessage"
-                  placeholder="Enter The Message Here"name="message">
-              </div>
+            <form id="gform" method="POST" action="" >
 
-              <button type="submit" class="btn btn-primary">Send Message</button>
-            </form>
+              <div class="form-group">
+                <label for="contact-name">Name</label>
+                <input type="text" class="form-control" id="contact-name" name="name"  placeholder="Enter Your Name.." pattern="[a-zA-Z\s]+" required onkeyup='validateName()'>
+                <span class='error-message' id='name-error'></span>
+              </div>
+    
+              <div class="form-group"> 
+                <label for="contact-phone">Phone Number</label>
+                <input type="text" class="form-control" id="contact-phone" name="phone" placeholder="Enter Your Phone Number" pattern="[0-9]+" minlength="10"  required onkeyup='validatePhone()'>
+                <span class='error-message' id='phone-error'></span>
+              </div>
+    
+              <div class="form-group">
+                <label for="contact-email">Email address</label>
+                <input type="email" class="form-control" id="contact-email" name="email" placeholder="Enter Your Email" required onkeyup='validateEmail()'>
+                <span class='error-message' id='email-error'></span>
+              </div>   
+    
+              <div class="form-group">
+                <label for='contactMessage'>Your Message</label>
+                <textarea class="form-control" rows="5" id='contact-message'  name='message'  placeholder="Enter the message" ></textarea>
+                <span class='error-message' id='message-error'></span>
+              </div>
+    
+            <button onclick='validateForm()' class="btn btn-default bg-primary" >Submit</button>
+            <span class='error-message' id='submit-error' required></span>
+          </form>
           </div>
         </div>
+        <script>
+          function validateName() {
+
+var name = document.getElementById('contact-name').value;
+
+if(name.length == 0) {
+
+  producePrompt('Please Enter Your Name', 'name-error' , 'Yellow')
+  return false;
+
+}
+
+if (!name.match( /^[a-zA-Z\s]+$/)) {
+
+  producePrompt('Please enter a valid name','name-error', 'yellow');
+  return false;
+
+}
+
+producePrompt('', 'name-error', 'green');
+return true;
+
+}
+
+function validatePhone() {
+
+var phone = document.getElementById('contact-phone').value;
+
+  if(phone.length == 0) {
+    producePrompt('Please Enter Your Phone Number', 'phone-error', 'yellow');
+    return false;
+  }
+
+  
+
+  if(!phone.match(/^[0-9]{10}$/)) {
+    producePrompt('Please Enter A Valid Phone Number' ,'phone-error', 'yellow');
+    return false;
+  }
+
+  producePrompt('', 'phone-error', 'green');
+  return true;
+
+}
+
+function validateEmail () {
+
+var email = document.getElementById('contact-email').value;
+
+if(email.length == 0) {
+
+  producePrompt('Please Enter Your Email','email-error', 'yellow');
+  return false;
+
+}
+
+if(!email.match(/^[A-Za-z\._\-[0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)) {
+
+  producePrompt('Please Enter A valid Email Id', 'email-error', 'yellow');
+  return false;
+
+}
+
+producePrompt('', 'email-error', 'green');
+return true;
+
+}
+
+
+
+function validateForm() {
+if (!validateName() || !validatePhone() || !validateEmail()) {
+  jsShow('submit-error');
+  producePrompt('PLEASE ENTER THE FORM PROPERLY', 'submit-error', 'Yellow');
+  setTimeout(function(){jsHide('submit-error');}, 2000);
+}
+else {
+
+}
+}
+
+function jsShow(id) {
+document.getElementById(id).style.display = 'block';
+}
+
+function jsHide(id) {
+document.getElementById(id).style.display = 'none';
+}
+
+
+
+
+function producePrompt(message, promptLocation, color) {
+
+document.getElementById(promptLocation).innerHTML = message;
+document.getElementById(promptLocation).style.color = color;
+
+
+}
+        </script>
+        
         <div class="col-md-6  contact-info">
           <h4>E-mail</h4>
           <img src="Assets/Images/—Pngtree—email icon in flat style_5237475.png" height="30 px" width="30 px">
@@ -226,23 +335,20 @@
           <hr color="bg-primary">
           <h4>Whatsapp</h4>
           <img src="Assets/Images/Whatsapp (1).png" height="30 px" width="30 px">
-          <a href="https://wa.link/c55c44">+918129547383</a>
+          <a href="https://wa.link/c55c44" target="_blank">+918129547383</a>
           <hr color="bg-light">
           <h4>Call Me</h4>
           <img src="Assets/Images/Whatsapp (2).png" height="30 px" width="30 px">
-          <a href="Tel:8129547383">+918129547383</a>
+          <a href="Tel:8129547383" target="_blank">+918129547383</a>
           <hr background-color="bg-light">
           <h4>Facebook</h4>
           <img src="Assets/Images/fb.png" height="30 px" width="30 px">
-          <a href="https://www.facebook.com/sameeh.kottakkal/">Sameeh Abdussamed</a>
+          <a href="https://www.facebook.com/sameeh.kottakkal/" target="_blank">Sameeh Abdussamed</a>
           <hr>
         </div>
       </div>
     </div>
   </section>
-
-
-  
   <script>
     $("#gform").submit((e)=>{
         e.preventDefault()
@@ -262,7 +368,14 @@
         })
     })
 </script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  
+
+<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script> -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    
 </body>
 
 </html>
